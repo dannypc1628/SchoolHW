@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>工作排程表</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="create.js"></script>
+	<style>
+		table {
+		    height: 80%;
+			width: 80%;
+		}
+		td{
+			height: 80px;
+			width: 80px;
+		}
+		table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+		#divday {
+			border:1px solid #aaaaaa;
+		}
+		
+	</style>
+<script type="text/javascript">
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+</script>
+</head>
+
+<body>
+	<form name="loginForm">
+		<input name="year"  type="text" value="年份" >
+		<input name="month"  type="text" value="月" >
+		<input type ="button" onclick="createCalendar();" value="go">
+	</form>
+	
+	<!-- <table >
+		<tr>
+			<td id="a1" ondrop="drop(event)" ondragover="allowDrop(event)">星期天</td>
+			<td id="a2" ondrop="drop(event)" ondragover="allowDrop(event)">星期一</td>
+			<td id="a3" ondrop="drop(event)" ondragover="allowDrop(event)">星期二</td>
+			<td id="a4" ondrop="drop(event)" ondragover="allowDrop(event)">星期三</td>
+			<td id="a5" ondrop="drop(event)" ondragover="allowDrop(event)">星期四</td>
+			<td id="a6" ondrop="drop(event)" ondragover="allowDrop(event)">星期五</td>
+			<td id="a7" ondrop="drop(event)" ondragover="allowDrop(event)">星期六</td>
+		</tr>
+		<tr>
+			<td id="day01" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day02" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day03" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day04" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day05" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day06" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day07" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			
+		</tr>
+		<tr>
+			<td id="day08" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day09" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day10" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day11" ondrop="drop(event)" ondragover="allowDrop(event)">  </td>
+			<td id="day12" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day13" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img src="img/img_logo.gif" id="img2" draggable="true" ondragstart="drag(event)">
+			</td>
+			<td id="day14" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			
+		</tr>
+		<tr>
+			<td id="day15" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day16" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day17" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day18" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day19" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day20" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+			<td id="day21" ondrop="drop(event)" ondragover="allowDrop(event)"> </td>
+		</tr>
+		<tr>
+			<td id="day22" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day23" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day24" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day25" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day26" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day27" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td id="day28" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+		</tr>
+
+		<tr >
+			<td id="doctor" >
+				<img id="Ahri" src="img/Ahri.png" value="圖片" draggable="true" ondragstart="drag(event)"></img>
+			</td>
+			
+		</tr>
+	</table>	
+
+	<img id="img" src="img/img_logo.gif" draggable="true" ondragstart="drag(event)">
+ -->
+	<div id="apple"></div>
+	<div id="doctorList" cellPadding="0" align="center"></div>
+
+</body>
+
+</html>
