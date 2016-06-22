@@ -46,9 +46,13 @@ function createCalendar()
 
   for (i=0;i<totalCells;i++)
   {
-	if ( i%7 == 0 )
-		strCalendar+="<TR><TD>&nbsp;</TD>";
-
+	if ( i%7 == 0 ){
+		strCalendar+="<TR><TD><br>";
+    strCalendar += "<div class='divday' type='hidden' value='早' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'>早上</div>";
+    strCalendar += "<div class='divday' type='hidden' value='午' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'>下午</div>";
+    strCalendar += "<div class='divday' type='hidden' value='晚' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'>晚上</div>";
+    strCalendar += "</TD>";
+}
 
 	if ( i >= day && i < total )
 	{
@@ -57,9 +61,9 @@ function createCalendar()
 			var whichDate = date.getFullYear() + "/" + (date.getMonth()+1) + "/" + ((i-day)+1);
 			strCalendar += "<TD id='day"+day+"type='hidden'>"+((i-day)+1);
 			strCalendar += "<input id='Identity' type='hidden' value='" + whichDate + "'>";
-      strCalendar += "<div class='divday' type='hidden' value='早' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'>早</div>";
-      strCalendar += "<div class='divday' type='hidden' value='午' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'>午</div>";
-      strCalendar += "<div class='divday' type='hidden' value='晚' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'>晚</div>";
+      strCalendar += "<div class='divday' type='hidden' value='早' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'></div>";
+      strCalendar += "<div class='divday' type='hidden' value='午' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'></div>";
+      strCalendar += "<div class='divday' type='hidden' value='晚' style='border:1px solid #DDDDDD;height:60px;' ondrop='drop(event)' ondragover='allowDrop(event)'></div>";
 		}
 	}
 	else
@@ -81,20 +85,22 @@ function createCalendar()
 
 function setDoctor(){
   var time = "";
+  time = "<p align='left'>-------1---------2---------3---------4---------5-------</p>";
   for(var i = 0 ;i<5 ;i++){
-      time += "<img id='Ahri"+i+"' src='img/Ahri.png' value='圖片' draggable='true' ondragstart='drag(event)' style='position:relative;height:60px; z-index:"+i+";'></img>" ;  
+      time += "<img id='Ahri"+i+"' src='img/Ahri.png' value='圖片' align='left' draggable='true' ondragstart='drag(event)' style='position:relative;height:60px; z-index:"+i+";'></img>" ;  
+
+  }
+  time +="<br><br><br><br>";
+    for(var i = 0 ;i<5 ;i++){
+      time += "<img id='Sona"+i+"' src='img/Sona.png' value='圖片' align='left' draggable='true' ondragstart='drag(event)' style='position:relative;height:60px; z-index:"+i+";'></img>" ;  
+
+  }
+  time +="<br><br><br><br>";
+    for(var i = 0 ;i<5 ;i++){
+      time += "<img id='MissFortune"+i+"' src='img/MissFortune.png' value='圖片' align='left' draggable='true' ondragstart='drag(event)' style='position:relative;height:60px; z-index:"+i+";'></img>" ;  
 
   }
   time +="<br>";
-    for(var i = 0 ;i<5 ;i++){
-      time += "<img id='Sona"+i+"' src='img/Sona.png' value='圖片' draggable='true' ondragstart='drag(event)' style='position:relative;height:60px; z-index:"+i+";'></img>" ;  
-
-  }
-  time +="<br>";
-    for(var i = 0 ;i<5 ;i++){
-      time += "<img id='MissFortune"+i+"' src='img/MissFortune.png' value='圖片' draggable='true' ondragstart='drag(event)' style='position:relative;height:60px; z-index:"+i+";'></img>" ;  
-
-  }
   document.getElementById("doctorList").innerHTML = time;
 }
 
