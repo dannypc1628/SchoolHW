@@ -1,8 +1,16 @@
 
 var date = new Date();
 
+var user="";
 
+function go(){
+ 
+ 
+  var u = set.username.value;
+  user += "<div>"+u+"</div><br><br>";
+  localStorage.userlist += user;
 
+}
 
 
 function createCalendar()
